@@ -4,100 +4,94 @@ procedure wellcome(input_name:string;number:string);
 implementation
               uses crt,graph;
               const
-                   n=20;{number of words}
+                   n=4;{number of words}
                    m=25;
                    d=150;{delay of showing words}
               var
                  input_name:string[m];
                  number:integer;
-                 mwm:array[1..n] of char;
+                 mwm:array[1..n] of string;
                  color:array[0..4] of integer;
+                 color_check:array[1..2] of integer;
+              function clrchk(var color_check:array of integer):integer;
+              begin
+                   color_check[1]:=random(4);
+                   while (color_check[0]=color_check[1]) do
+                   begin
+                        color_check[1]:=random(4);
+                   end;
+                       color_check[0]:=color_check[1];
+                       clrchk:=color[color_check[1]];
+              end;
               procedure wellcome(input_name:string;number:string);
               var
-                 l,i,j,x,y:integer;
+                 l,i,j,x,x2,y:integer;
               begin
                    {coordinates}
                    x:=37;
                    y:=10;
                    randomize;
                    l:=length(input_name);
-                   gotoxy(x,y);
+                   color_check[1]:=1;
                    for i:=1 to n do
                    begin
-                        if ((i=8) or (i=10)) then
+                        gotoxy(x,y);
+                        for j:=1 to length(mwm[i]) do
                         begin
-                             y:=y+1;
-                             gotoxy(x+2,y);
-                             if (i=10) then
-                             begin
-                                gotoxy(x,y);
-                                for j:=1 to l do
-                                begin
-                                    textcolor(color[random(4)]);
-                                    write(input_name[j]);
-                                    delay(d);
-                                end;
-                                y:=y+1;
-                                gotoxy(x-3,y);
-                             end;
+                            textcolor(clrchk(color_check));
+                            write(mwm[i][j]);
+                            delay(d);
                         end;
-                        {Writing 'PROGRAM','by' and 'Labaratory #'}
-                        textcolor(color[random(4)]);
-                        if ((i<n) and (mwm[i+1]='#')) then
-                            write(mwm[i],' ')
+                        {input name}
+                        if (i=2) then
+                        begin
+                           textcolor(white);
+                           for j:=1 to length(input_name) do
+                           begin
+                                textbackground(clrchk(color_check));
+                                write(input_name[j]);
+                                delay(d);
+                           end;
+                           textbackground(0);
+                        end;
+                        {/input name}
+                        if (i=3) then
+                           x:=x+length(mwm[i])
                         else
-                            write(mwm[i]);
-                        delay(d);
+                           y:=y+1;
                    end;
                    {Number of labaratory}
                    for i:=1 to length(number) do
                    begin
-                        textcolor(color[random(4)]);
+                        textcolor(clrchk(color_check));
                         write(number[i]);
                         delay(d);
                    end;
               textcolor(white);
-              y:=y+1;
               while(keypressed<>true) do
               begin
-                   gotoxy(x-8,y);
+                   gotoxy(x-16,y);
                    write('Press');
                    textcolor(red);
                    write(' ANYKEY');
                    textcolor(white);
                    write(' to continue');
                    delay(500);
-                   gotoxy(x-8,y);
+                   gotoxy(x-16,y);
                    write('                        ');
                    delay(500);
               end;
               end;
 begin
-{Color}
+   {Color}
    color[0]:=9;
    color[1]:=10;
    color[2]:=12;
    color[3]:=13;
    color[4]:=14;
    {words}
-   mwm[1]:='P';
-   mwm[2]:='R';
-   mwm[3]:='O';
-   mwm[4]:='G';
-   mwm[5]:='R';
-   mwm[6]:='A';
-   mwm[7]:='M';
-   mwm[8]:='B';
-   mwm[9]:='y';
-   mwm[10]:='L';
-   mwm[11]:='a';
-   mwm[12]:='b';
-   mwm[13]:='o';
-   mwm[14]:='r';
-   mwm[15]:='a';
-   mwm[16]:='t';
-   mwm[17]:='o';
-   mwm[18]:='r';
-   mwm[19]:='y';
-   mwm[20]:='#';
+   mwm[1]:='Program';
+   mwm[2]:='by ';
+   mwm[3]:='Laboratory ';
+   mwm[4]:='#';
 end.
