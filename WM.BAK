@@ -1,4 +1,4 @@
-unit wm;{ver. 1.01a}
+unit wm;
 interface
 procedure wellcome(input_name:string;number:string);
 implementation

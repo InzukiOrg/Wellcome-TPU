@@ -16,4 +16,4 @@
 
 >  **Автор**: [Denis Inzuki](https://github.com/InzukiOrg "Denis Inzuki")
 
-> **Версия 1.01**
+> **Версия 1.01a**
