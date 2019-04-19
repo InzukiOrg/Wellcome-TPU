@@ -1,4 +1,4 @@
-unit wm;{ver. 1.31a}
+unit wm;{ver. 1.31b}
 interface
 procedure wellcome(input_name:string;number:string);
 implementation
@@ -156,6 +156,9 @@ implementation
                    write('                        ');
                    delay(500);
               end;
+              {clear clipboard(bufer obmena)}
+              MemW[Seg0040:$1C]:=MemW[Seg0040:$1A];
+              {--}
               gotoxy(0,0);
               clrscr;
               end;
