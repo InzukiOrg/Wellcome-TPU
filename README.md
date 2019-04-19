@@ -17,4 +17,4 @@
 
 >  **Автор**: [Denis Inzuki](https://github.com/InzukiOrg "Denis Inzuki")
 
-> **Версия 1.31**
+> **Версия 1.31a**

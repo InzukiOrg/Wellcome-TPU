@@ -116,7 +116,7 @@ implementation
                            textcolor(white);
                            for j:=1 to length(input_name) do
                            begin
-                                if (j>14) then
+                                if (j>16) then
                                    break;
                                 textbackground(clrchk(color_check));
                                 if (input_name[j]=' ') then

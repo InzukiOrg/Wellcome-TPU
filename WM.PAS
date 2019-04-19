@@ -1,4 +1,4 @@
-unit wm;{ver. 1.3}
+unit wm;{ver. 1.31a}
 interface
 procedure wellcome(input_name:string;number:string);
 implementation
@@ -156,6 +156,8 @@ implementation
                    write('                        ');
                    delay(500);
               end;
+              gotoxy(0,0);
+              clrscr;
               end;
 begin
    {Color}
