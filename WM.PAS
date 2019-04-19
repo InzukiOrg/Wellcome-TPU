@@ -6,7 +6,7 @@ implementation
               const
                    bd=70;
                    n=4;{number of words}
-                   m=25;
+                   m=14;
                    d=150;{delay of showing words}
               var
                  input_name:string[m];
@@ -116,6 +116,8 @@ implementation
                            textcolor(white);
                            for j:=1 to length(input_name) do
                            begin
+                                if (j>16) then
+                                   break;
                                 textbackground(clrchk(color_check));
                                 if (input_name[j]=' ') then
                                    textbackground(0);
